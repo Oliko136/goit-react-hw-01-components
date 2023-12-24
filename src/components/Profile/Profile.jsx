@@ -1,34 +1,46 @@
 import PropTypes from "prop-types";
+import {
+    Card,
+    Avatar,
+    Description,
+    Username,
+    UserTag,
+    Location,
+    Stats,
+    StatItem,
+    StatLabel,
+    StatQuantity
+} from "./Profile.styled";
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
     return (
-        <div className="profile">
-            <div className="description">
-                <img
+        <Card>
+            <Description>
+                <Avatar
                 src={avatar}
                 alt="User avatar"
-                className="avatar"
+                width={140}
                 />
-                <p className="name">{username}</p>
-                <p className="tag">@{tag}</p>
-                <p className="location">{location}</p>
-            </div>
+                <Username>{username}</Username>
+                <UserTag>@{tag}</UserTag>
+                <Location>{location}</Location>
+            </Description>
 
-            <ul className="stats">
-                <li>
-                <span className="label">Followers</span>
-                <span className="quantity">{stats.followers}</span>
-                </li>
-                <li>
-                <span className="label">Views</span>
-                <span className="quantity">{stats.views}</span>
-                </li>
-                <li>
-                <span className="label">Likes</span>
-                <span className="quantity">{stats.likes}</span>
-                </li>
-            </ul>
-        </div>
+            <Stats>
+                <StatItem>
+                <StatLabel>Followers</StatLabel>
+                <StatQuantity>{stats.followers}</StatQuantity>
+                </StatItem>
+                <StatItem>
+                <StatLabel>Views</StatLabel>
+                <StatQuantity>{stats.views}</StatQuantity>
+                </StatItem>
+                <StatItem>
+                <StatLabel>Likes</StatLabel>
+                <StatQuantity>{stats.likes}</StatQuantity>
+                </StatItem>
+            </Stats>
+        </Card>
     )
 }
 
