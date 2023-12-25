@@ -9,14 +9,12 @@ import {
 } from "./Statistics.styled";
 
 export const Statistics = ({ title, stats }) => {
-    console.log(stats.length)
     return (
         <StatSection>
             {title && <Title>{title}</Title>}
 
             <StatList>
                 {stats.map(({ id, label, percentage }) => {
-                    console.log(stats.length);
                     return <StatItem key={id} quantity={stats.length}>
                         <StatLabel>{label}</StatLabel>
                         <StatPercentage>{percentage}%</StatPercentage>
